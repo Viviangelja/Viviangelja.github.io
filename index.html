@@ -1,0 +1,332 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}img{max-width:100%}body{margin:0}</style>
+<title>Viviana Angel Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gabarito:wght@500;600;700;800&family=Figtree:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+</head><body>
+<style>
+/* Layout: one calm column. Hero with photo, a short "about" band, then a vertical career timeline: each era = year marker + role header with its tools + projects one per row */
+:root{
+  --bg:#F7F6FB; --surface:#FFFFFF; --ink:#1F1D3D; --muted:#625F80; --line:#E6E3F0;
+  --teal:#0E8C7E; --teal-s:#E0F4F1; --coral:#DA5D3E; --coral-s:#FDE9E3; --sun:#B97F0B; --sun-s:#FBF1DA;
+  --sky:#2B74BA; --sky-s:#E3EEF9; --berry:#AD3E70; --berry-s:#F8E5EE;
+  --display:"Gabarito","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --body:"Figtree","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --mono:"DM Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#15142B; --surface:#1E1D3A; --ink:#EDEBF7; --muted:#ABA8C6; --line:#312F52;
+  --teal:#47CDBB; --teal-s:#173B3A; --coral:#FF8E73; --coral-s:#40241F; --sun:#F4C25C; --sun-s:#3A3016;
+  --sky:#76B1EC; --sky-s:#1A2C46; --berry:#EC82B0; --berry-s:#3D1F30; color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#15142B; --surface:#1E1D3A; --ink:#EDEBF7; --muted:#ABA8C6; --line:#312F52;
+  --teal:#47CDBB; --teal-s:#173B3A; --coral:#FF8E73; --coral-s:#40241F; --sun:#F4C25C; --sun-s:#3A3016;
+  --sky:#76B1EC; --sky-s:#1A2C46; --berry:#EC82B0; --berry-s:#3D1F30; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+html[data-lang="es"] [lang="en"], html:not([data-lang="es"]) [lang="es"]{display:none !important}
+.wrap{max-width:1060px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left,0px));padding-right:max(16px, env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--display);margin:0;line-height:1.1;letter-spacing:-.015em;text-wrap:balance}
+p{margin:0}
+a{color:var(--sky)}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px;border-radius:6px}
+.eyebrow{font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.c-teal{--c:var(--teal);--c-s:var(--teal-s)} .c-coral{--c:var(--coral);--c-s:var(--coral-s)} .c-sky{--c:var(--sky);--c-s:var(--sky-s)} .c-berry{--c:var(--berry);--c-s:var(--berry-s)} .c-sun{--c:var(--sun);--c-s:var(--sun-s)}
+
+/* bar */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:6;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;align-items:center;gap:22px;padding-block:11px}
+.logo{display:flex;align-items:center;gap:10px;margin-right:auto;font-family:var(--display);font-weight:700;white-space:nowrap}
+.logo .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:.85rem;background:linear-gradient(135deg,var(--teal),var(--sky))}
+.nav{display:flex;gap:20px;font-size:.92rem;font-weight:500}
+.nav a{color:var(--muted);text-decoration:none}
+.nav a:hover{color:var(--ink)}
+.lang{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:3px;font-family:var(--mono);font-size:.78rem}
+.lang button{background:none;border:0;padding:4px 11px;border-radius:999px;color:var(--muted);cursor:pointer;font:inherit}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+@media (max-width:820px){.nav{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:52px;align-items:center;padding-block:60px 44px}
+.hero h1{font-size:clamp(2.7rem,6vw,4.4rem);font-weight:800;letter-spacing:-.035em}
+.hero h1 span.c{color:var(--teal)}
+.role{font-family:var(--display);font-size:1.35rem;font-weight:600;margin-top:12px}
+.hero .lede{color:var(--muted);font-size:1.1rem;margin-top:16px;max-width:52ch}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.badge{font-size:.84rem;font-weight:600;padding:6px 12px;border-radius:999px;background:var(--c-s);color:var(--c)}
+.contact{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.mail{font-weight:600;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 14px;overflow-wrap:anywhere}
+.btn{font:inherit;font-size:.88rem;font-weight:600;border:0;border-radius:10px;padding:10px 15px;background:var(--ink);color:var(--bg);cursor:pointer;text-decoration:none}
+.btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line)}
+.photo{position:relative;margin:0;isolation:isolate}
+.photo img{display:block;width:100%;aspect-ratio:5/6;object-fit:cover;object-position:center 20%;border-radius:28px}
+.photo::before{content:"";position:absolute;inset:16px -16px -16px 16px;border-radius:28px;background:var(--teal-s);z-index:-1}
+.photo figcaption{position:absolute;left:14px;bottom:14px;background:var(--surface);color:var(--ink);border-radius:12px;padding:8px 12px;font-size:.82rem;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.photo figcaption span{display:block;font-family:var(--mono);font-size:.68rem;font-weight:400;color:var(--muted)}
+@media (max-width:780px){.hero{grid-template-columns:1fr;gap:34px;padding-block:40px}.photo{max-width:280px}}
+
+/* about */
+.about{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:clamp(22px,4vw,40px);margin-bottom:64px}
+.about-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px;align-items:start}
+.about .big{font-family:var(--display);font-size:clamp(1.45rem,2.6vw,1.9rem);font-weight:600;line-height:1.25}
+.about .big em{font-style:normal;color:var(--teal)}
+.about .sub{color:var(--muted);margin-top:12px}
+.vals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.val{border-radius:14px;padding:12px 14px;background:var(--bg)}
+.val i{display:block;width:26px;height:4px;border-radius:4px;background:var(--c);margin-bottom:8px}
+.val h4{font-size:.98rem}
+.val p{font-size:.84rem;color:var(--muted);margin-top:2px;line-height:1.4}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px;margin-top:26px}
+.st{border:1px solid var(--line);border-radius:14px;padding:14px;border-top:4px solid var(--c)}
+.st .n{font-family:var(--mono);font-size:.72rem;color:var(--muted)}
+.st h4{font-size:1rem;margin-top:2px}
+.st p{font-size:.82rem;color:var(--muted);margin-top:3px;line-height:1.4}
+@media (max-width:860px){.about-top{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.vals,.steps{grid-template-columns:1fr}}
+
+/* timeline */
+.tl-head{margin-bottom:30px}
+.tl-head h2{font-size:clamp(2rem,4vw,2.8rem);font-weight:800;margin-top:6px}
+.tl-head p{color:var(--muted);margin-top:8px;max-width:60ch}
+.era{display:grid;grid-template-columns:110px minmax(0,1fr);gap:28px;position:relative;padding-bottom:60px}
+.era::before{content:"";position:absolute;left:54px;top:44px;bottom:0;width:2px;background:var(--line)}
+.era:last-of-type::before{display:none}
+.year{position:sticky;top:70px;align-self:start;text-align:center}
+.year b{display:inline-block;font-family:var(--display);font-weight:800;font-size:1.05rem;padding:8px 12px;border-radius:14px;background:var(--c-s);color:var(--c);position:relative;z-index:1}
+.year small{display:block;font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-top:6px}
+.era-body{min-width:0;display:grid;gap:16px}
+.era-top{border-left:4px solid var(--c);padding-left:16px;display:grid;gap:6px}
+.era-top h3{font-size:1.6rem;font-weight:700}
+.era-top .org{font-weight:600;color:var(--c)}
+.tools{display:flex;flex-wrap:wrap;gap:6px}
+.tool{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--c-s);color:var(--c)}
+.era-top p{color:var(--muted);max-width:64ch}
+.proj{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+.proj .img{background:var(--c-s);padding:14px;display:flex;flex-direction:column;justify-content:center;gap:8px;min-width:0}
+.zoom{display:block;padding:0;border:0;border-radius:10px;overflow:hidden;background:#fff;cursor:zoom-in;width:100%}
+.zoom img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.thumbs{display:flex;gap:6px;overflow-x:auto}
+.th{flex:0 0 62px;height:44px;padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:#fff}
+.th:hover{border-color:var(--c)}
+.th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.proj .txt{padding:20px 22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.proj h4{font-size:1.24rem}
+.q{font-size:.92rem;background:var(--c-s);border-radius:12px;padding:10px 12px;line-height:1.45}
+.q b{display:block;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--c);font-weight:500}
+.proj ul{margin:0;padding-left:18px;color:var(--muted);font-size:.9rem;display:grid;gap:4px}
+.minis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mini{background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;min-width:0;display:flex;flex-direction:column}
+.mini .zoom{border-radius:0}
+.mini .zoom img{aspect-ratio:16/10}
+.mini .mt{padding:12px 14px}
+.mini h4{font-size:1rem}
+.mini p{font-size:.84rem;color:var(--muted);margin-top:3px;line-height:1.4}
+.mini.text{background:var(--c-s);border-color:transparent;justify-content:center}
+.paper{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px dashed var(--c);border-radius:16px;padding:16px 18px}
+.paper .pi{flex:0 0 46px;height:46px;border-radius:12px;background:var(--c-s);color:var(--c);display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.8rem}
+.paper p{font-size:.88rem;color:var(--muted);margin-top:3px}
+.status{display:inline-block;font-family:var(--mono);font-size:.68rem;padding:2px 8px;border-radius:999px;background:var(--sun-s);color:var(--sun);margin-left:6px;vertical-align:2px}
+.note{font-size:.82rem;color:var(--muted)}
+/* architecture diagram */
+.arch{background:var(--c-s);padding:16px;min-width:0;overflow-x:auto}
+.proj.stack{grid-template-columns:1fr}
+.proj.stack .txt ul{grid-template-columns:1fr 1fr;column-gap:24px}
+@media (max-width:760px){.proj.stack .txt ul{grid-template-columns:1fr}}
+.arch-grid{display:grid;grid-template-columns:repeat(5,minmax(96px,1fr));gap:8px;min-width:520px}
+.arch .col{display:flex;flex-direction:column;gap:6px}
+.arch h5{margin:0;font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.arch .bx{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--k,var(--line));border-radius:8px;padding:6px 8px;font-size:.76rem;line-height:1.3}
+.arch .bx small{display:block;font-family:var(--mono);font-size:.62rem;color:var(--muted)}
+.k-src{--k:#8A8F98} .k-br{--k:#B07A2C} .k-sv{--k:#7D8A96} .k-gd{--k:#C9A227} .k-bi{--k:var(--c)}
+@media (max-width:760px){.era{grid-template-columns:1fr;gap:12px}.era::before{display:none}.year{position:static;text-align:left}.year small{display:inline;margin-left:8px}.proj{grid-template-columns:1fr}.minis{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.minis{grid-template-columns:1fr}}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sk{border-radius:18px;padding:18px;border:1px solid var(--line);background:var(--surface);display:flex;flex-direction:column;gap:10px}
+.sk h4{font-size:1.05rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.78rem;font-weight:600;padding:3px 10px;border-radius:999px;background:var(--c-s);color:var(--c)}
+.creds{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:14px}
+.cred{display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px}
+.cred .bd{flex:0 0 42px;height:42px;border-radius:12px;display:grid;place-items:center;font-family:var(--display);font-weight:800;font-size:.78rem;background:var(--c-s);color:var(--c)}
+.cred h4{font-size:.98rem}
+.cred p{font-size:.82rem;color:var(--muted);margin-top:2px}
+@media (max-width:900px){.skills{grid-template-columns:1fr 1fr}.creds{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.skills,.creds{grid-template-columns:1fr}}
+section.block{padding-block:20px 60px}
+.sh h2{font-size:clamp(2rem,4vw,2.6rem);font-weight:800;margin:6px 0 24px}
+
+/* contact */
+.cta{border-radius:26px;padding:clamp(24px,4vw,44px);background:linear-gradient(135deg,var(--teal-s),var(--sky-s) 55%,var(--berry-s));border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px;align-items:center}
+.cta h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800}
+.cta p{color:var(--muted);margin-top:10px;max-width:46ch}
+@media (max-width:760px){.cta{grid-template-columns:1fr}}
+footer{padding-block:26px 44px;color:var(--muted);font-size:.84rem}
+
+/* lightbox */
+.lb[hidden]{display:none}
+.lb{position:fixed;inset:0;z-index:30;background:rgba(14,13,30,.9);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:calc(56px + env(safe-area-inset-top,0px)) max(16px, env(safe-area-inset-right,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(16px, env(safe-area-inset-left,0px))}
+.lb img{max-width:min(1400px,100%);max-height:76vh;object-fit:contain;border-radius:10px;background:#fff}
+.lb .cap{color:#EDEBF7;font-size:.92rem;text-align:center}
+.lb .x{position:absolute;top:calc(14px + env(safe-area-inset-top,0px));right:max(16px, env(safe-area-inset-right,0px))}
+.lb .nv{display:flex;gap:10px;align-items:center}
+.lb button{background:#EDEBF7;color:#1F1D3D;border:0;border-radius:999px;padding:7px 15px;font:inherit;font-weight:600;cursor:pointer}
+.lb .pos{color:#EDEBF7;font-family:var(--mono);font-size:.8rem;min-width:52px;text-align:center}
+@media (prefers-reduced-motion:no-preference){.zoom img{transition:transform .4s ease}.zoom:hover img{transform:scale(1.025)}}
+</style>
+
+<header class="bar"><div class="wrap">
+  <div class="logo"><span class="dot">VA</span>Viviana Angel</div>
+  <nav class="nav" aria-label="Sections"><a href="#about"><span lang="en">About</span><span lang="es">Sobre mí</span></a><a href="#timeline"><span lang="en">Timeline</span><span lang="es">Trayectoria</span></a><a href="#skills"><span lang="en">Skills</span><span lang="es">Habilidades</span></a><a href="#contact"><span lang="en">Contact</span><span lang="es">Contacto</span></a></nav>
+  <div class="lang" role="group" aria-label="Language"><button type="button" id="btn-en" data-set="en" aria-pressed="true">EN</button><button type="button" id="btn-es" data-set="es" aria-pressed="false">ES</button></div>
+</div></header>
+
+<main><div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="eyebrow"><span lang="en">Portfolio · Data &amp; BI</span><span lang="es">Portafolio · Datos y BI</span></div>
+      <h1>Viviana <span class="c">Angel</span></h1>
+      <div class="role">Senior Data Analyst · <span lang="en">Data &amp; BI Developer</span><span lang="es">Desarrolladora de Datos y BI</span></div>
+      <p class="lede"><span lang="en">Data professional. I listen to the problem first, then build what it needs: pipelines and data warehouses, data models, dashboards, documentation and training.</span><span lang="es">Profesional de datos. Primero escucho el problema y luego construyo lo que necesita: pipelines y data warehouses, modelos de datos, tableros, documentación y capacitación.</span></p>
+      <div class="badges"><span class="badge c-teal">Master of Data Science</span><span class="badge c-sky">Tableau Desktop Specialist</span><span class="badge c-coral">Power BI · Fabric · Python</span><span class="badge c-berry"><span lang="en">English · Spanish</span><span lang="es">Inglés · Español</span></span></div>
+      <div class="contact"><span class="mail" id="mail">vivi.angel.ja@gmail.com</span><button type="button" class="btn" id="copy"><span lang="en">Copy email</span><span lang="es">Copiar correo</span></button><a class="btn ghost" href="#timeline"><span lang="en">See my work</span><span lang="es">Ver mi trabajo</span></a></div>
+    </div>
+    <figure class="photo"><img src="img/photo.jpg" alt="Viviana Angel"><figcaption>Viviana Angel<span><span lang="en">Data &amp; BI · EN / ES</span><span lang="es">Datos y BI · EN / ES</span></span></figcaption></figure>
+  </div>
+
+  <section class="about" id="about">
+    <div class="about-top">
+      <div>
+        <div class="eyebrow"><span lang="en">Beyond the data</span><span lang="es">Más allá de los datos</span></div>
+        <p class="big" style="margin-top:10px"><span lang="en">I love learning and connecting with people from every culture. <em>Diversity is where the richest ideas come from.</em></span><span lang="es">Me encanta aprender y relacionarme con personas de todas las culturas. <em>En la diversidad está la riqueza de ideas y conocimiento.</em></span></p>
+        <p class="sub"><span lang="en">What drives me is helping people work better and be more productive. I always suggest improvements, I am always ready to learn, and I love discovering new places.</span><span lang="es">Lo que me mueve es ayudar a la gente a trabajar mejor y ser más productiva. Siempre propongo mejoras, siempre estoy dispuesta a aprender y me encanta conocer lugares nuevos.</span></p>
+      </div>
+      <div class="vals">
+        <div class="val c-teal"><i></i><h4><span lang="en">Every culture</span><span lang="es">Todas las culturas</span></h4><p><span lang="en">Different views make better solutions.</span><span lang="es">Distintas miradas crean mejores soluciones.</span></p></div>
+        <div class="val c-coral"><i></i><h4><span lang="en">Helping people</span><span lang="es">Ayudar a la gente</span></h4><p><span lang="en">More productive teams are the goal.</span><span lang="es">Equipos más productivos son la meta.</span></p></div>
+        <div class="val c-sun"><i></i><h4><span lang="en">Always improving</span><span lang="es">Siempre mejorando</span></h4><p><span lang="en">Every delivery comes with next steps.</span><span lang="es">Cada entrega trae próximos pasos.</span></p></div>
+        <div class="val c-sky"><i></i><h4><span lang="en">Always learning</span><span lang="es">Siempre aprendiendo</span></h4><p><span lang="en">New tools, fields and places.</span><span lang="es">Nuevas herramientas, campos y lugares.</span></p></div>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="st c-sky"><div class="n">01</div><h4><span lang="en">Listen</span><span lang="es">Escuchar</span></h4><p><span lang="en">Start from the people with the problem.</span><span lang="es">Partir de quienes tienen el problema.</span></p></div>
+      <div class="st c-teal"><div class="n">02</div><h4><span lang="en">Understand</span><span lang="es">Entender</span></h4><p><span lang="en">Map the data, rules and KPIs.</span><span lang="es">Mapear datos, reglas y KPI.</span></p></div>
+      <div class="st c-sun"><div class="n">03</div><h4><span lang="en">Build</span><span lang="es">Construir</span></h4><p><span lang="en">Pipelines, models, dashboards.</span><span lang="es">Pipelines, modelos, tableros.</span></p></div>
+      <div class="st c-coral"><div class="n">04</div><h4><span lang="en">Automate</span><span lang="es">Automatizar</span></h4><p><span lang="en">As far as the tools allow.</span><span lang="es">Hasta donde las herramientas lo permitan.</span></p></div>
+      <div class="st c-berry"><div class="n">05</div><h4><span lang="en">Improve</span><span lang="es">Mejorar</span></h4><p><span lang="en">Document, train, suggest.</span><span lang="es">Documentar, capacitar, sugerir.</span></p></div>
+    </div>
+  </section>
+
+  <div class="tl-head" id="timeline"><div class="eyebrow"><span lang="en">Career timeline</span><span lang="es">Trayectoria</span></div><h2><span lang="en">What I built, year by year</span><span lang="es">Lo que construí, año por año</span></h2><p><span lang="en">Tools used are listed at the top of each stage. Select any image to enlarge it. Confidential figures and logos are blurred.</span><span lang="es">Las herramientas usadas están arriba de cada etapa. Toca cualquier imagen para ampliarla. Las cifras y logos confidenciales están difuminados.</span></p></div>
+  <section class="era c-sun" id="e2026">
+  <div class="year"><b>2026</b><small><span lang="en">— now</span><span lang="es">— hoy</span></small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Data &amp; BI Developer · Senior Information Officer</span><span lang="es">Desarrolladora de Datos y BI · Senior Information Officer</span></h3><div class="tools" aria-label="Tools"><span class="tool">Microsoft Fabric</span><span class="tool">SQL</span><span class="tool">Stored procedures</span><span class="tool">Power BI</span><span class="tool">Power Query</span><span class="tool">SharePoint</span><span class="tool">Dataflows</span><span class="tool">Git · Azure DevOps</span></div><p><span lang="en">I own data warehouse layers in Microsoft Fabric and turn manual spreadsheet processes into automated, documented pipelines.</span><span lang="es">Me encargo de capas de data warehouse en Microsoft Fabric y convierto procesos manuales en Excel en pipelines automáticos y documentados.</span></p></div>
+    <article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g1" data-i="0"><img src="img/tr-detail.jpg" alt="Face-to-face detail" loading="lazy"></button><div class="thumbs"><button type="button" class="th" data-gal="g1" data-i="1" aria-label="Image 2"><img src="img/tr-method.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g1" data-i="2" aria-label="Image 3"><img src="img/tr-overview.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g1" data-i="3" aria-label="Image 4"><img src="img/tr-f2f.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g1" data-i="4" aria-label="Image 5"><img src="img/tr-planning.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g1" data-i="5" aria-label="Image 6"><img src="img/tr-quality.jpg" alt="" loading="lazy"></button></div></div><div class="txt"><h4><span lang="en">Training completions dashboard (ACT)</span><span lang="es">Tablero de completaciones de capacitación (ACT)</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">Who completed the training, where, and how does it compare with the last cycle?</span><span lang="es">¿Quién completó la capacitación, dónde y cómo va frente al ciclo anterior?</span></div><ul><li><span lang="en">Eight-page Power BI report: completions by delivery method, face-to-face detail, session planning by week and a data-quality page.</span><span lang="es">Reporte de Power BI de ocho páginas: completaciones por modalidad, detalle presencial, planeación de sesiones por semana y una página de calidad de datos.</span></li><li><span lang="en">Combines payroll-verified completions, sign-in sheets and enrolments; a resolution ladder matches messy location names to the official master.</span><span lang="es">Une completaciones verificadas por nómina, hojas de asistencia e inscripciones; una escalera de resolución empareja nombres con el maestro oficial.</span></li><li><span lang="en">Data-quality page lists every record that needs fixing at the source.</span><span lang="es">La página de calidad lista cada registro que hay que corregir en la fuente.</span></li></ul></div></article><article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g2" data-i="0"><img src="img/sl-list.jpg" alt="Ranked select list" loading="lazy"></button><div class="thumbs"><button type="button" class="th" data-gal="g2" data-i="1" aria-label="Image 2"><img src="img/sl-firm.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g2" data-i="2" aria-label="Image 3"><img src="img/sl-quality.jpg" alt="" loading="lazy"></button></div></div><div class="txt"><h4><span lang="en">Select List Tool</span><span lang="es">Herramienta de Select List</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">Which prequalified firms should be invited to quote on each project, fairly and with evidence?</span><span lang="es">¿Qué firmas precalificadas invitar a cotizar en cada proyecto, de forma justa y con evidencia?</span></div><ul><li><span lang="en">Replaced a broken VBA macro and a manual count with a Fabric warehouse (bronze → silver → gold) feeding Power BI.</span><span lang="es">Reemplacé una macro VBA rota y un conteo manual por un warehouse en Fabric (bronze → silver → gold) que alimenta Power BI.</span></li><li><span lang="en">Ranking rule: approved region first, then fewest invitations in 12 months; payments and work in hand shown as context.</span><span lang="es">Regla de ranking: región aprobada primero, luego menos invitaciones en 12 meses; pagos y trabajo en curso como contexto.</span></li><li><span lang="en">A data-quality page flags what to fix in the register before each meeting.</span><span lang="es">Una página de calidad señala qué corregir en el registro antes de cada reunión.</span></li></ul></div></article>
+  </div>
+</section><section class="era c-coral" id="e2025">
+  <div class="year"><b>2025</b><small>— 2026</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Senior Data Analyst</span><span lang="es">Senior Data Analyst</span></h3><div class="tools" aria-label="Tools"><span class="tool">Power BI</span><span class="tool">Microsoft Fabric</span><span class="tool">Power Query</span><span class="tool">DAX</span><span class="tool">ServiceNow</span><span class="tool">Python</span><span class="tool">SharePoint</span></div><p><span lang="en">Executive dashboards, ServiceNow analytics and Python validation for leadership teams, plus governance and training. Figures and logos are blurred.</span><span lang="es">Tableros ejecutivos, analítica de ServiceNow y validación en Python para equipos directivos, además de gobierno de datos y capacitación. Cifras y logos difuminados.</span></p></div>
+    <article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g3" data-i="0"><img src="img/dash-flow.jpg" alt="Routing behaviour and flow" loading="lazy"></button><div class="thumbs"><button type="button" class="th" data-gal="g3" data-i="1" aria-label="Image 2"><img src="img/dash-demand.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g3" data-i="2" aria-label="Image 3"><img src="img/doc-summary.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g3" data-i="3" aria-label="Image 4"><img src="img/doc-model.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g3" data-i="4" aria-label="Image 5"><img src="img/doc-roadmap.jpg" alt="" loading="lazy"></button></div></div><div class="txt"><h4><span lang="en">IT service performance analytics</span><span lang="es">Analítica de desempeño de servicios de TI</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">Where is IT work getting stuck, and are SLAs being met?</span><span lang="es">¿Dónde se atasca el trabajo de TI y se cumplen los SLA?</span></div><ul><li><span lang="en">Layered pipeline from ServiceNow extracts to a gold reporting layer and star-schema model.</span><span lang="es">Pipeline por capas desde extracciones de ServiceNow hasta una capa gold y un modelo estrella.</span></li><li><span lang="en">Routing flow (Sankey) showing where work enters, stays or moves out.</span><span lang="es">Flujo de enrutamiento (Sankey) que muestra dónde entra, se queda o sale el trabajo.</span></li><li><span lang="en">350,000+ records validated in Python; roadmap to an incremental API pipeline.</span><span lang="es">Más de 350.000 registros validados con Python; hoja de ruta a un pipeline incremental por API.</span></li></ul></div></article><div class="minis"><div class="mini"><button type="button" class="zoom" data-gal="g4" data-i="0"><img src="img/dash-exec-suite.jpg" alt="Executive reporting suite" loading="lazy"></button><div class="mt"><h4><span lang="en">Executive reporting suite</span><span lang="es">Suite de reportes ejecutivos</span></h4><p><span lang="en">Recognised with a Certificate of Recognition.</span><span lang="es">Reconocida con un Certificado de Reconocimiento.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g5" data-i="0"><img src="img/prog-bars-a.jpg" alt="Strategic plan progress" loading="lazy"></button><div class="mt"><h4><span lang="en">Strategic plan progress</span><span lang="es">Avance de planes estratégicos</span></h4><p><span lang="en">Several visual options for leadership.</span><span lang="es">Varias opciones visuales para la dirección.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g6" data-i="0"><img src="img/training-library.jpg" alt="Training videos" loading="lazy"></button><div class="mt"><h4><span lang="en">Training videos</span><span lang="es">Videos de capacitación</span></h4><p><span lang="en">Six short videos for non-technical users.</span><span lang="es">Seis videos cortos para usuarios no técnicos.</span></p></div></div></div>
+  </div>
+</section><section class="era c-teal" id="e2024s">
+  <div class="year"><b>2024</b><small>— 2025</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Customer Data Coordinator</span><span lang="es">Coordinadora de Datos de Clientes</span></h3><div class="tools" aria-label="Tools"><span class="tool">Python</span><span class="tool">Data cleaning</span><span class="tool">Automation</span></div><p><span lang="en">Liaison between customers and technical teams, turning feedback into product improvements.</span><span lang="es">Enlace entre clientes y equipos técnicos, convirtiendo la retroalimentación en mejoras del producto.</span></p></div>
+    <div class="minis"><div class="mini text"><div class="mt"><h4><span lang="en">Solar data automation</span><span lang="es">Automatización de datos solares</span></h4><p><span lang="en">Python scripts for daily solar-park data transfers with preprocessing and cleaning, replacing manual work.</span><span lang="es">Scripts en Python para transferencias diarias de datos de parques solares, con preprocesamiento y limpieza, reemplazando trabajo manual.</span></p></div></div></div>
+  </div>
+</section><section class="era c-sky" id="e2023">
+  <div class="year"><b>2023</b><small>— 2024</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Master of Data Science</span><span lang="es">Maestría en Ciencia de Datos</span></h3><div class="tools" aria-label="Tools"><span class="tool">Python</span><span class="tool">pandas</span><span class="tool">NetworkX</span><span class="tool">SEIR modelling</span><span class="tool">Tableau</span><span class="tool">Machine learning</span></div><p><span lang="en">Capstone in epidemiological network modelling, plus coursework in visual analytics, data at scale and machine learning.</span><span lang="es">Proyecto de grado en modelado epidemiológico con redes, además de cursos de analítica visual, datos a escala y machine learning.</span></p></div>
+    <article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g7" data-i="0"><img src="img/fiji-7.jpg" alt="Airports and travel routes" loading="lazy"></button><div class="thumbs"><button type="button" class="th" data-gal="g7" data-i="1" aria-label="Image 2"><img src="img/fiji-8.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g7" data-i="2" aria-label="Image 3"><img src="img/fiji-13.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g7" data-i="3" aria-label="Image 4"><img src="img/fiji-16.jpg" alt="" loading="lazy"></button><button type="button" class="th" data-gal="g7" data-i="4" aria-label="Image 5"><img src="img/fiji-1.jpg" alt="" loading="lazy"></button></div></div><div class="txt"><h4><span lang="en">Pacific infectious travel networks (capstone)</span><span lang="es">Redes de viaje y enfermedades en el Pacífico (proyecto de grado)</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">How do air and ferry connections shape an outbreak across Fiji, and which intervention works best?</span><span lang="es">¿Cómo influyen las rutas aéreas y de ferry en un brote en Fiji y qué intervención funciona mejor?</span></div><ul><li><span lang="en">Travel network built in Python from airports, ferry ports and daily mobility.</span><span lang="es">Red de viajes construida en Python con aeropuertos, puertos de ferry y movilidad diaria.</span></li><li><span lang="en">SEIR simulations of lockdown, social distancing and face masks, nationally and for a small island community.</span><span lang="es">Simulaciones SEIR de cuarentena, distanciamiento y tapabocas, a nivel nacional y en una isla pequeña.</span></li><li><span lang="en">Peak infection and recovery compared across scenarios.</span><span lang="es">Comparación del pico de infección y la recuperación entre escenarios.</span></li></ul></div></article><div class="paper"><span class="pi">IEEE</span><div><h4>TN-SEIR: A Travel Network-Based Epidemiological Model for Infectious Disease Surveillance and Control in Pacific Island Communities <span class="status"><span lang="en">under review</span><span lang="es">en revisión</span></span></h4><p><span lang="en">Co-author, with researchers from The University of Queensland and Murdoch University · IEEE Access · Fiji, French Polynesia and Samoa.</span><span lang="es">Coautora, con investigadores de The University of Queensland y Murdoch University · IEEE Access · Fiji, Polinesia Francesa y Samoa.</span></p></div></div><div class="minis"><div class="mini"><button type="button" class="zoom" data-gal="g8" data-i="0"><img src="img/res-colombia.jpg" alt="Poverty and crime in Colombia" loading="lazy"></button><div class="mt"><h4><span lang="en">Poverty and crime in Colombia</span><span lang="es">Pobreza y crimen en Colombia</span></h4><p><span lang="en">Tableau · maps and scatter plots by department.</span><span lang="es">Tableau · mapas y dispersión por departamento.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g9" data-i="0"><img src="img/res-facebook.jpg" alt="Facebook ad spend 2024" loading="lazy"></button><div class="mt"><h4><span lang="en">Facebook ad spend 2024</span><span lang="es">Gasto en anuncios de Facebook 2024</span></h4><p><span lang="en">Tableau · top pages and audience heatmap.</span><span lang="es">Tableau · páginas top y mapa de calor de audiencia.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g10" data-i="0"><img src="img/res-maintenance.jpg" alt="Predictive maintenance" loading="lazy"></button><div class="mt"><h4><span lang="en">Predictive maintenance</span><span lang="es">Mantenimiento predictivo</span></h4><p><span lang="en">EDA of sensor readings before failures.</span><span lang="es">EDA de sensores antes de cada falla.</span></p></div></div></div>
+  </div>
+</section><section class="era c-teal" id="e2022">
+  <div class="year"><b>2022</b><small>— 2024</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Data Developer · Tableau</span><span lang="es">Data Developer · Tableau</span></h3><div class="tools" aria-label="Tools"><span class="tool">Tableau</span><span class="tool">Tableau Server</span><span class="tool">Snowflake</span><span class="tool">SQL</span><span class="tool">Amazon Athena</span><span class="tool">PostgreSQL</span><span class="tool">Jira</span></div><p><span lang="en">End-to-end Tableau dashboards for People, Finance, Marketing, Product and IT, delivered in Agile sprints with UAT.</span><span lang="es">Tableros de Tableau de punta a punta para Talento, Finanzas, Mercadeo, Producto y TI, entregados en sprints Agile con UAT.</span></p></div>
+    <article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g11" data-i="0"><img src="img/tab-recruiting.jpg" alt="Recruiting report" loading="lazy"></button></div><div class="txt"><h4><span lang="en">P&amp;T Recruiting Report</span><span lang="es">Reporte de Reclutamiento P&amp;T</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">How healthy is the hiring pipeline, and where are requisitions getting stuck?</span><span lang="es">¿Qué tan sano está el pipeline de contratación y dónde se atascan las vacantes?</span></div><ul><li><span lang="en">Nine dashboards from one Snowflake model: offers, hiring managers, daily pipeline.</span><span lang="es">Nueve tableros desde un modelo en Snowflake: ofertas, hiring managers, pipeline diario.</span></li><li><span lang="en">Time-to-fill, offer acceptance and days-open traffic lights; 109 calculated fields.</span><span lang="es">Time-to-fill, aceptación de ofertas y semáforos de días abiertos; 109 campos calculados.</span></li></ul></div></article><div class="minis"><div class="mini"><button type="button" class="zoom" data-gal="g12" data-i="0"><img src="img/tab-bookings.jpg" alt="Total bookings" loading="lazy"></button><div class="mt"><h4><span lang="en">Total bookings</span><span lang="es">Bookings totales</span></h4><p><span lang="en">Finance · quarter, LTM and YoY.</span><span lang="es">Finanzas · trimestre, LTM e interanual.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g13" data-i="0"><img src="img/tab-adoption.jpg" alt="Social Commerce metrics" loading="lazy"></button><div class="mt"><h4><span lang="en">Social Commerce metrics</span><span lang="es">Métricas de Social Commerce</span></h4><p><span lang="en">Product adoption, NPS and retention.</span><span lang="es">Adopción, NPS y retención.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g14" data-i="0"><img src="img/tab-demandgen.jpg" alt="Demand generation pacing" loading="lazy"></button><div class="mt"><h4><span lang="en">Demand generation pacing</span><span lang="es">Ritmo de generación de demanda</span></h4><p><span lang="en">Marketing · MQL/SQL vs goal by region.</span><span lang="es">Mercadeo · MQL/SQL vs meta por región.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g15" data-i="0"><img src="img/tab-jira.jpg" alt="Jira service desk" loading="lazy"></button><div class="mt"><h4><span lang="en">Jira service desk</span><span lang="es">Mesa de servicio Jira</span></h4><p><span lang="en">IT · response and resolution times.</span><span lang="es">TI · tiempos de respuesta y resolución.</span></p></div></div><div class="mini"><button type="button" class="zoom" data-gal="g16" data-i="0"><img src="img/tab-usage.jpg" alt="Tableau usage &amp;amp; adoption" loading="lazy"></button><div class="mt"><h4><span lang="en">Tableau usage &amp; adoption</span><span lang="es">Uso y adopción de Tableau</span></h4><p><span lang="en">Server repository · active users.</span><span lang="es">Repositorio del servidor · usuarios activos.</span></p></div></div><div class="mini text"><div class="mt"><h4><span lang="en">Tableau Server admin</span><span lang="es">Administración de Tableau Server</span></h4><p><span lang="en">Row-level security, refresh schedules, releases and governance.</span><span lang="es">Seguridad por filas, actualizaciones, publicaciones y gobierno.</span></p></div></div></div>
+  </div>
+</section><section class="era c-berry" id="e2017">
+  <div class="year"><b>2017</b><small>— 2022</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Data Visualisation Specialist · Financial Controller</span><span lang="es">Especialista en Visualización de Datos · Controller Financiera</span></h3><div class="tools" aria-label="Tools"><span class="tool">Tableau</span><span class="tool">Power BI</span><span class="tool">SAP HANA</span><span class="tool">SAP BW</span><span class="tool">GCP</span><span class="tool">Excel</span></div><p><span lang="en">Sales and budget reporting for the commercial and finance teams, built in Spanish.</span><span lang="es">Reportes de ventas y presupuesto para los equipos comercial y financiero.</span></p></div>
+    <article class="proj"><div class="img"><button type="button" class="zoom" data-gal="g17" data-i="0"><img src="img/tab-ventas.jpg" alt="Daily sales report" loading="lazy"></button></div><div class="txt"><h4><span lang="en">Informe de Ventas</span><span lang="es">Informe de Ventas</span></h4><div class="q"><b><span lang="en">Question</span><span lang="es">Pregunta</span></b><span lang="en">How is each channel, region and salesperson selling against budget?</span><span lang="es">¿Cómo vende cada canal, región y vendedor frente al presupuesto?</span></div><ul><li><span lang="en">Daily sales on SAP HANA for desktop and mobile, used by 500+ people.</span><span lang="es">Ventas diarias sobre SAP HANA en escritorio y móvil, usadas por más de 500 personas.</span></li><li><span lang="en">Measure switcher, Top-N categories and a built-in user guide.</span><span lang="es">Selector de medidas, Top-N de categorías y guía de usuario integrada.</span></li></ul></div></article><div class="minis"><div class="mini"><button type="button" class="zoom" data-gal="g18" data-i="0"><img src="img/tab-presupuesto.jpg" alt="Budget execution" loading="lazy"></button><div class="mt"><h4><span lang="en">Budget execution</span><span lang="es">Ejecución presupuestal</span></h4><p><span lang="en">SAP BW · plan vs actual by cost centre.</span><span lang="es">SAP BW · plan vs real por centro de costo.</span></p></div></div><div class="mini text"><div class="mt"><h4><span lang="en">Tableau Server training</span><span lang="es">Capacitación en Tableau Server</span></h4><p><span lang="en">Designed and delivered a course for 200+ users and company-wide visual guidelines.</span><span lang="es">Diseñé y dicté un curso para más de 200 usuarios y la guía visual de la compañía.</span></p></div></div><div class="mini text"><div class="mt"><h4><span lang="en">Migration to GCP</span><span lang="es">Migración a GCP</span></h4><p><span lang="en">Followed the on-premises to Google Cloud migration of the sales dashboards.</span><span lang="es">Acompañé la migración de los tableros de ventas de on-premises a Google Cloud.</span></p></div></div></div>
+  </div>
+</section><section class="era c-sky" id="e2013">
+  <div class="year"><b>2013</b><small>— 2015</small></div>
+  <div class="era-body">
+    <div class="era-top"><h3><span lang="en">Portfolio Analyst · Data Analyst intern</span><span lang="es">Analista de Cartera · Practicante de Datos</span></h3><div class="tools" aria-label="Tools"><span class="tool">SAP</span><span class="tool">Excel</span><span class="tool">Financial analysis</span></div><p><span lang="en">Where it started: finance, data and a lot of Excel.</span><span lang="es">Donde empezó todo: finanzas, datos y mucho Excel.</span></p></div>
+    <div class="minis"><div class="mini text"><div class="mt"><h4><span lang="en">Credit portfolio analysis</span><span lang="es">Análisis de cartera de crédito</span></h4><p><span lang="en">Monitored the bank's credit portfolio and followed up contracts and clients.</span><span lang="es">Monitoreé la cartera de crédito del banco y el seguimiento de contratos y clientes.</span></p></div></div></div>
+  </div>
+</section>
+
+  <section class="block" id="skills">
+    <div class="sh"><div class="eyebrow"><span lang="en">Skills &amp; credentials</span><span lang="es">Habilidades y credenciales</span></div><h2><span lang="en">Engineering underneath, design on top</span><span lang="es">Ingeniería en la base, diseño encima</span></h2></div>
+    <div class="skills">
+      <div class="sk c-sun"><h4><span lang="en">Data engineering</span><span lang="es">Ingeniería de datos</span></h4><div class="chips"><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Microsoft Fabric</span><span class="chip">Dataflows</span><span class="chip">Snowflake</span><span class="chip">GCP</span><span class="chip">Stored procedures</span></div></div>
+      <div class="sk c-sky"><h4><span lang="en">Modelling</span><span lang="es">Modelado</span></h4><div class="chips"><span class="chip">Star schema</span><span class="chip">DAX</span><span class="chip">Power Query M</span><span class="chip">LOD</span><span class="chip">RLS</span></div></div>
+      <div class="sk c-teal"><h4><span lang="en">Front end</span><span lang="es">Front end</span></h4><div class="chips"><span class="chip">Power BI</span><span class="chip">Tableau</span><span class="chip">Excel</span><span class="chip">Data storytelling</span></div></div>
+      <div class="sk c-coral"><h4><span lang="en">Delivery</span><span lang="es">Entrega</span></h4><div class="chips"><span class="chip"><span lang="en">Requirements</span><span lang="es">Requerimientos</span></span><span class="chip">UAT</span><span class="chip">Agile · Jira</span><span class="chip">Git · Azure DevOps</span><span class="chip"><span lang="en">Training</span><span lang="es">Capacitación</span></span><span class="chip"><span lang="en">Documentation</span><span lang="es">Documentación</span></span></div></div>
+    </div>
+    <div class="creds">
+      <div class="cred c-sky"><span class="bd">MDS</span><div><h4>Master of Data Science</h4><p>The University of Queensland · 2023 – 2024</p></div></div>
+      <div class="cred c-teal"><span class="bd">TDS</span><div><h4>Tableau Desktop Specialist</h4><p>Tableau · 2023</p></div></div>
+      <div class="cred c-teal"><span class="bd">I–III</span><div><h4>Tableau Desktop I, II &amp; III</h4><p>Tableau Software · 2020</p></div></div>
+      <div class="cred c-sun"><span class="bd">FIN</span><div><h4><span lang="en">Bachelor of Finance &amp; International Business</span><span lang="es">Profesional en Finanzas y Negocios Internacionales</span></h4><p>Fundación Universitaria San Martín · 2008 – 2013</p></div></div>
+      <div class="cred c-berry"><span class="bd">TI</span><div><h4><span lang="en">IT course</span><span lang="es">Curso de TI</span></h4><p>Platzi</p></div></div>
+      <div class="cred c-coral"><span class="bd">AI</span><div><h4><span lang="en">AI-assisted development &amp; prompting</span><span lang="es">Desarrollo asistido por IA y prompting</span></h4><p><span lang="en">Claude Code for SQL, Python and report files; built a dashboard-design AI skill based on Few, Wong and Cairo.</span><span lang="es">Claude Code para SQL, Python y reportes; construí un skill de IA de diseño de tableros basado en Few, Wong y Cairo.</span></p></div></div>
+    </div>
+  </section>
+
+  <section class="block" id="contact" style="padding-bottom:10px">
+    <div class="cta">
+      <div><div class="eyebrow"><span lang="en">Contact</span><span lang="es">Contacto</span></div><h2 style="margin-top:8px"><span lang="en">Let's make your data useful.</span><span lang="es">Hagamos que tus datos sirvan.</span></h2><p><span lang="en">Open to BI, analytics engineering and data engineering roles. CV and references on request.</span><span lang="es">Abierta a roles de BI, analytics engineering y data engineering. CV y referencias a solicitud.</span></p></div>
+      <div class="contact" style="margin-top:0"><span class="mail" id="mail2">vivi.angel.ja@gmail.com</span><button type="button" class="btn" id="copy2"><span lang="en">Copy email</span><span lang="es">Copiar correo</span></button></div>
+    </div>
+  </section>
+</div></main>
+
+<footer><div class="wrap">© 2026 Viviana Angel · <span lang="en">Confidential figures and logos are blurred.</span><span lang="es">Las cifras y logos confidenciales están difuminados.</span></div></footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button type="button" class="x" id="lb-x"><span lang="en">Close</span><span lang="es">Cerrar</span></button>
+  <img id="lb-img" alt="">
+  <div class="cap" id="lb-cap"></div>
+  <div class="nv" id="lb-nv"><button type="button" id="lb-prev" aria-label="Previous">‹</button><span class="pos" id="lb-pos"></span><button type="button" id="lb-next" aria-label="Next">›</button></div>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, lb=document.getElementById('lb');
+  var GAL={"g1":[{"src":"img/tr-detail.jpg","en":"Face-to-face detail","es":"Detalle presencial"},{"src":"img/tr-method.jpg","en":"Completions by delivery method","es":"Completaciones por modalidad"},{"src":"img/tr-overview.jpg","en":"Overview by year, season and region","es":"Resumen por a\u00f1o, temporada y regi\u00f3n"},{"src":"img/tr-f2f.jpg","en":"Enrolments vs attendees","es":"Inscritos vs asistentes"},{"src":"img/tr-planning.jpg","en":"Weekly session planning","es":"Planeaci\u00f3n semanal de sesiones"},{"src":"img/tr-quality.jpg","en":"Data quality overview","es":"Resumen de calidad de datos"}],"g2":[{"src":"img/sl-list.jpg","en":"Ranked select list","es":"Lista priorizada"},{"src":"img/sl-firm.jpg","en":"Firm details","es":"Detalle de la firma"},{"src":"img/sl-quality.jpg","en":"Data quality checks","es":"Controles de calidad"}],"g3":[{"src":"img/dash-flow.jpg","en":"Routing behaviour and flow","es":"Comportamiento de enrutamiento y flujo"},{"src":"img/dash-demand.jpg","en":"Demand vs delivery","es":"Demanda vs entrega"},{"src":"img/doc-summary.jpg","en":"Solution document","es":"Documento de la soluci\u00f3n"},{"src":"img/doc-model.jpg","en":"Gold layer and data model","es":"Capa gold y modelo"},{"src":"img/doc-roadmap.jpg","en":"API pipeline roadmap","es":"Hoja de ruta del pipeline API"}],"g4":[{"src":"img/dash-exec-suite.jpg","en":"Executive reporting suite","es":"Suite de reportes ejecutivos"}],"g5":[{"src":"img/prog-bars-a.jpg","en":"Strategic plan progress","es":"Avance de planes estrat\u00e9gicos"}],"g6":[{"src":"img/training-library.jpg","en":"Training videos","es":"Videos de capacitaci\u00f3n"}],"g7":[{"src":"img/fiji-7.jpg","en":"Airports and travel routes","es":"Aeropuertos y rutas"},{"src":"img/fiji-8.jpg","en":"Travel network by community","es":"Red de viajes por comunidad"},{"src":"img/fiji-13.jpg","en":"SEIR model with lockdown","es":"Modelo SEIR con cuarentena"},{"src":"img/fiji-16.jpg","en":"Scenario comparison","es":"Comparaci\u00f3n de escenarios"},{"src":"img/fiji-1.jpg","en":"Final presentation","es":"Presentaci\u00f3n final"}],"g8":[{"src":"img/res-colombia.jpg","en":"Poverty and crime in Colombia","es":"Pobreza y crimen en Colombia"}],"g9":[{"src":"img/res-facebook.jpg","en":"Facebook ad spend 2024","es":"Gasto en anuncios de Facebook 2024"}],"g10":[{"src":"img/res-maintenance.jpg","en":"Predictive maintenance","es":"Mantenimiento predictivo"}],"g11":[{"src":"img/tab-recruiting.jpg","en":"Recruiting report","es":"Reporte de reclutamiento"}],"g12":[{"src":"img/tab-bookings.jpg","en":"Total bookings","es":"Bookings totales"}],"g13":[{"src":"img/tab-adoption.jpg","en":"Social Commerce metrics","es":"M\u00e9tricas de Social Commerce"}],"g14":[{"src":"img/tab-demandgen.jpg","en":"Demand generation pacing","es":"Ritmo de generaci\u00f3n de demanda"}],"g15":[{"src":"img/tab-jira.jpg","en":"Jira service desk","es":"Mesa de servicio Jira"}],"g16":[{"src":"img/tab-usage.jpg","en":"Tableau usage & adoption","es":"Uso y adopci\u00f3n de Tableau"}],"g17":[{"src":"img/tab-ventas.jpg","en":"Daily sales report","es":"Informe diario de ventas"}],"g18":[{"src":"img/tab-presupuesto.jpg","en":"Budget execution","es":"Ejecuci\u00f3n presupuestal"}]};
+  function lang(){return root.getAttribute('data-lang')||'en'}
+  function setLang(l){root.setAttribute('data-lang',l);root.lang=l;
+    document.getElementById('btn-en').setAttribute('aria-pressed',String(l==='en'));
+    document.getElementById('btn-es').setAttribute('aria-pressed',String(l==='es'));
+    try{localStorage.setItem('va-lang',l)}catch(e){} if(!lb.hidden) show();}
+  var init='en'; if(location.hash==='#es') init='es'; else {try{init=localStorage.getItem('va-lang')||'en'}catch(e){}}
+  setLang(init);
+  document.querySelectorAll('[data-set]').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+  var cur=null,idx=0,opener=null,im=document.getElementById('lb-img'),cap=document.getElementById('lb-cap'),pos=document.getElementById('lb-pos'),nv=document.getElementById('lb-nv');
+  function show(){var g=GAL[cur],it=g[idx];im.src=it.src;im.alt=it[lang()];cap.textContent=it[lang()];pos.textContent=(idx+1)+' / '+g.length;nv.hidden=g.length<2;}
+  document.querySelectorAll('[data-gal]').forEach(function(b){b.addEventListener('click',function(){cur=b.dataset.gal;idx=+b.dataset.i;opener=b;show();lb.hidden=false;document.getElementById('lb-x').focus();})});
+  function step(d){var g=GAL[cur];idx=(idx+d+g.length)%g.length;show();}
+  function close(){lb.hidden=true;im.removeAttribute('src');if(opener)opener.focus();}
+  document.getElementById('lb-prev').addEventListener('click',function(){step(-1)});
+  document.getElementById('lb-next').addEventListener('click',function(){step(1)});
+  document.getElementById('lb-x').addEventListener('click',close);
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')step(1);if(e.key==='ArrowLeft')step(-1);});
+  [['copy','mail'],['copy2','mail2']].forEach(function(p){var b=document.getElementById(p[0]),m=document.getElementById(p[1]);
+    b.addEventListener('click',function(){var label=b.innerHTML;
+      function ok(){b.textContent=lang()==='es'?'Copiado':'Copied';setTimeout(function(){b.innerHTML=label},1500)}
+      function sel(){var r=document.createRange();r.selectNodeContents(m);var w=getSelection();w.removeAllRanges();w.addRange(r)}
+      if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText('vivi.angel.ja@gmail.com').then(ok,sel);else sel();});});
+})();
+</script>
+</body></html>
